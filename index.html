@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How HackerTyper.app Works</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; background: #f9f9f9; color: #333; }
+    pre { background: #eee; padding: 1rem; overflow-x: auto; border-radius: 5px; }
+    a { color: #0077cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    #screen {
+      font-family: monospace;
+      background: #000;
+      color: #0f0;
+      padding: 1rem;
+      height: 200px;
+      overflow-y: auto;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>How HackerTyper.app Works</h1>
+  <p>This site simulates hacker-style typing where any key press outputs code on screen.</p>
+  <h2>Simple HackerTyper Demo</h2>
+  <div id="screen"></div>
+  <pre>
+&lt;script&gt;
+const screen = document.getElementById('screen');
+const code = "console.log('Hello Hacker!');\nfunction test() { return true; }\n";
+let index = 0;
+
+document.addEventListener('keydown', () =&gt; {
+  if (index &lt; code.length) {
+    screen.textContent += code[index++];
+    screen.scrollTop = screen.scrollHeight;
+  }
+});
+&lt;/script&gt;
+  </pre>
+  <p>Try the real thing at <a href="https://hackertyper.app" target="_blank" rel="noopener noreferrer">hackertyper.app</a></p>
+</body>
+</html>
